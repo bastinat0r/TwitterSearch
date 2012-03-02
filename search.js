@@ -1,8 +1,6 @@
 var http = require('http'),
-	EventEmitter = require('events').EventEmitter;
 	querystring = require('querystring');
 
-module.exports = new EventEmitter();
 
 module.exports.parseAnswer = function (answer)
 {
@@ -16,7 +14,7 @@ module.exports.parseAnswer = function (answer)
 	return ret;
 };
 
-module.exports.request = function (reqString) {
+module.exports.request = function (reqString, callback) {
 	var options = {
 		hostname : 'search.twitter.com',
 		port : 80,
@@ -33,7 +31,7 @@ module.exports.request = function (reqString) {
 		});
 
 		res.on('end', function(){	// emmit-data
-			module.exports.emit('answer', answer);	
+			callback(answer);
 		});
 	});
 
