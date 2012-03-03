@@ -19,6 +19,9 @@ module.exports.request = function (reqString, callback) {
 		hostname : 'search.twitter.com',
 		port : 80,
 		path : '/search.json?q=' + encodeURIComponent(reqString),
+		headers : {
+			'Content-Type' : 'node.js-twitter-search'
+		}
 		method : 'GET'
 	};
 
