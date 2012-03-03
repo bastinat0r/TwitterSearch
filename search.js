@@ -21,7 +21,7 @@ module.exports.request = function (reqString, callback) {
 		path : '/search.json?q=' + encodeURIComponent(reqString),
 		headers : {
 			'Content-Type' : 'node.js-twitter-search'
-		}
+		},
 		method : 'GET'
 	};
 
